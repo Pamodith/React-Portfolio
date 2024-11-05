@@ -1,0 +1,35 @@
+@import "../main/color";
+@import "../main/fonts";
+
+.availability {
+    &-outer {
+      background-color: $main-background;
+      border: 1px solid $main-bordercolor;
+      margin:20px;
+      border-radius: $main-borderRadius;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  //   &-inner{
+  //     font-size: 1.5rem;
+  //     font-family: $secondary-font;
+  //     color:$main-fontcolor;
+  //   }
+    &-inner-up{
+      font-size: 12rem;
+      font-family: $secondary-font;
+      color: $main-fontcolor;
+    }
+    &-inner-down{
+      font-size: 1.5rem;
+      font-family: $secondary-font;
+      padding-bottom: 3%;
+      color: $main-fontcolor;
+  
+      
+    }
+  }

@@ -1,0 +1,42 @@
+@import "../main/color";
+@import '../main/breakpoints';
+
+.navbar {
+  &-outer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 5rem;
+    background-color: $main-background;
+
+    @include break(tablet) {
+      flex-direction: row; 
+    }
+    
+
+    &-text {
+      font-size: 1.5rem;
+      color: $main-fontcolor;
+      transition: text-shadow 0.3s ease;
+
+      &:hover {
+        // text-decoration: underline;
+        color: $main-fontcolor;
+        cursor: pointer;
+        animation: shadow-glow 1.5s infinite alternate ease-in-out;
+      }
+    }
+  }
+}
+@keyframes shadow-glow {
+  0% {
+    text-shadow: 0 0 5px $main-fontcolor, 0 0 10px lighten($main-fontcolor, 10%), 0 0 15px lighten($main-fontcolor, 20%);
+  }
+  50% {
+    text-shadow: 0 0 10px $main-fontcolor, 0 0 20px lighten($main-fontcolor, 20%), 0 0 30px lighten($main-fontcolor, 30%);
+  }
+  100% {
+    text-shadow: 0 0 5px $main-fontcolor, 0 0 10px lighten($main-fontcolor, 10%), 0 0 15px lighten($main-fontcolor, 20%);
+  }
+}

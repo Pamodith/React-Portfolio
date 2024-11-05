@@ -1,0 +1,52 @@
+@import "../main/color";
+@import "../main/fonts";
+
+
+.experience {
+    &-outer {
+      border: 1px solid $main-bordercolor;
+      margin:20px;
+      border-radius: $main-borderRadius;
+      background:$main-background;
+      color: $main-fontcolor;
+    }
+    &-inner{
+        padding:20px;
+        &-title{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            &-titlename{
+                font-size: 1.5rem;
+                font-family: $secondary-font;
+                color: $main-fontcolor;
+
+            }
+            &-year{
+                font-size: 1rem;
+                font-family: $secondary-font;
+                color: $main-fontcolor;
+            }
+        }
+        &-jobtitle{
+            margin:1rem 0;
+            font-family: $secondary-font;
+            color: $main-fontcolor;
+            
+
+        }
+        &-description{
+            font-family: $secondary-font;
+            color: $main-fontcolor;
+
+        }
+        &-languages{
+            margin:1rem 0;
+            display: flex;
+            gap:2%;
+            font-family: $secondary-font;
+            color: $main-fontcolor;
+        }
+    }
+  }

@@ -1,0 +1,14 @@
+@import "../main/color";
+@import "../main/fonts";
+
+.card-outer{
+    background-color:$main-background;
+    border:1px solid $main-bordercolor;
+    width :100%;
+    height:300px;
+    display: flex;
+
+    .card-inner{
+
+    }
+}
