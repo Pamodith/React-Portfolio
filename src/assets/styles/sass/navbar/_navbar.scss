@@ -40,3 +40,7 @@
     text-shadow: 0 0 5px $main-fontcolor, 0 0 10px lighten($main-fontcolor, 10%), 0 0 15px lighten($main-fontcolor, 20%);
   }
 }
+
+.link{
+  text-decoration: none;
+}

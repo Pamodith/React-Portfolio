@@ -14,7 +14,8 @@ function App() {
     <>
     
     {/* {isLoading == true ? <LoadingPage/>:<MainNavigation/>} */}
-    <HomePage/>
+    {/* <HomePage/> */}
+    <MainNavigation/>
     {/* <LoadingPage/>  */}
     </>
   )

@@ -5,27 +5,68 @@
   &-outer {
     display: flex;
     justify-content: space-around;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     gap: 2%;
     background: $main-background;
-    
   }
+
   &-inner-left {
     height: 50%;
     width: 50%;
+    position: relative; 
   }
+
   &-inner-right {
     height: 50%;
     width: 50%;
-    
   }
 }
 
-.experiance{
-    color: $main-fontcolor;
-    font-size: 1.5rem;
-    font-family: $secondary-font;
+.hero {
+  position: relative; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+
+  &-image {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .circular-text {
+    position: absolute;
+    top: 117%;
+    left: 82%;
+    transform: translate(-50%, -50%); 
+    width: 400px; 
+    height: 400px; 
+    overflow: visible; 
+    // display: none;
+
+    svg {
+      width: 100%; 
+      height: 100%; 
+      animation: rotate 10s linear infinite; 
+    }
+
+    text {
+      fill: white; 
+      font-size: 14px; 
+      font-family: $secondary-font;
+    }
+  }
 }
 
-
+// Define keyframes for the rotation
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
