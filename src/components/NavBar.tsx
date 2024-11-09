@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid2";
 import TypographyText from "./TypographyText";
 import '../assets/styles/sass/navbar/_navbar.scss';
 import { navtextProp } from "../types/type";
+import Image from '../assets/images/202064914.png'
 
 const NavBar = () => {
   const navtext: navtextProp[] = [
@@ -36,6 +37,7 @@ const NavBar = () => {
   
   return (
     <Grid className="navbar-outer">
+      <img className="navbar-outer-profile-image" src={Image}/>
       {navtext.map((item) => (
         <TypographyText 
           key={item.id} 

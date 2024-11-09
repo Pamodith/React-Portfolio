@@ -4,6 +4,10 @@
 $primary-font:"Poppins", sans-serif;
 $secondary-font:"Montserrat", sans-serif;
 
+@font-face {
+  font-family: 'vintage';
+    src: url("../../../fonts/GreatVictorian-Standard.otf");
+}
 
 .poppins-thin {
     font-family: "Poppins", sans-serif;

@@ -2,8 +2,9 @@
 @import "../main/fonts";
 
 .card-outer{
-    background-color:$main-background;
+    background-color:$opacity-background;
     border:1px solid $main-bordercolor;
+    border-radius: 0.5rem;
     width :100%;
     height:300px;
     display: flex;

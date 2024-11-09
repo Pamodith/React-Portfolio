@@ -1,0 +1,10 @@
+@import "../main/color";
+@import "../main/fonts";
+
+.footer {
+    height: 7rem;
+    background: linear-gradient(to bottom, rgba(10, 104, 68, 0), rgb(228, 233, 232));
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    font-family: $primary-font;
+}

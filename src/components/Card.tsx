@@ -1,13 +1,16 @@
 import { Grid2 } from '@mui/material'
 import React from 'react'
 import "../assets/styles/sass/card/_card.scss"
+import { cardProp } from '../types/type'
 
-const Card = () => {
+const Card = (props:cardProp) => {
   return (
     
     <Grid2 className="card-outer">
-      <Grid2 className="Card-inner">
-Hi
+      <Grid2 className="card-inner">
+        <Grid2 className={props.cardClassName}>
+        {props.content}
+        </Grid2>
       </Grid2>
     </Grid2>
   

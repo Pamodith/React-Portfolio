@@ -1,0 +1,44 @@
+Variables
+:root {
+    --app-background: #333;
+    --cursor-light-size: 100px;  /* Base size of the innermost circle */
+    --light-opacity-start: 0.8;  /* Opacity for the center of the circle */
+    --light-opacity-end: 0;     /* Opacity for the outer layer */
+    --layer-size: 300px;        /* Size of the outermost layer */
+  }
+  
+  .app {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--app-background);
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .light-cursor {
+    position: absolute;
+    width: var(--cursor-light-size);
+    height: var(--cursor-light-size);
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, var(--light-opacity-start)) 0%,
+      rgba(255, 255, 255, 0.4) 30%,
+      rgba(255, 255, 255, 0.1) 60%,
+      rgba(255, 255, 255, var(--light-opacity-end)) 100%
+    );
+    transition: opacity 0.1s ease;
+  }
+  

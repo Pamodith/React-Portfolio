@@ -1,30 +1,43 @@
 @import "../main/color";
 @import '../main/breakpoints';
+@import '../../sass/main/fonts';
 
 .navbar {
   &-outer {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 5rem;
-    background-color: $main-background;
+    background-color:$main-background;
+    padding: 0 5%;
 
     @include break(tablet) {
       flex-direction: row; 
+    }
+
+    &-profile-image{
+      width: 60px;
+      height: 3rem;
+      border-radius: 0.25rem;
     }
     
 
     &-text {
       font-size: 1.5rem;
       color: $main-fontcolor;
-      transition: text-shadow 0.3s ease;
+      // transition: text-shadow 0.5s ease;
+      font-family: $primary-font;
+      font-weight: bold;
+      transition: 0.5s;
+      
 
       &:hover {
         // text-decoration: underline;
         color: $main-fontcolor;
         cursor: pointer;
         animation: shadow-glow 1.5s infinite alternate ease-in-out;
+        transform: scale(1.3);
       }
     }
   }

@@ -3,53 +3,67 @@
 
 .loadingPage {
   &-outer {
-    background-color: black;
+    position: relative;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
+    background: black;
   }
+
+  &-background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1; // ensures the video stays behind the content
+  }
+
   &-inner {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2; // ensures the text appears above the video
   }
 
   &-text {
     &-one {
       color: #80a9ca;
-      font-size: 2rem;
+      font-size: 1rem;
       font-family: $primary-font;
     }
 
     &-two {
       color: #DCDCAA;
-      font-size: 2rem;
+      font-size: 1rem;
       font-family: $primary-font;
     }
 
     &-three {
       color: #C586C0;
-      font-size: 2rem;
+      font-size: 1rem;
       font-family: $primary-font;
     }
 
     &-four {
       color: #CE9178;
-      font-size: 2rem;
+      font-size: 1rem;
       font-family: $primary-font;
-      transform: translate(-0.2rem, 1rem) rotate(10deg);
+      // transform: translate(-0.2rem, 1rem) rotate(10deg);
       animation: flicker 2s ease-in-out infinite alternate;
       text-shadow: 
-    10px 10px 20px rgba(139, 69, 19, 0.9), 
-    5px 5px 10px rgba(0, 0, 0, 0.5), 
-    2px 2px 5px rgba(255, 255, 255, 0.2); 
-
+        10px 10px 20px rgba(139, 69, 19, 0.9), 
+        5px 5px 10px rgba(0, 0, 0, 0.5), 
+        2px 2px 5px rgba(255, 255, 255, 0.2); 
     }
 
     &-five {
       color: #C586C0;
-      font-size: 2rem;
+      font-size: 1rem;
       font-family: $primary-font;
     }
   }

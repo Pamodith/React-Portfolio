@@ -5,10 +5,14 @@ import { Link } from 'react-router-dom';
 import { typographyProp } from '../types/type';
 
 const TypographyText = (props: typographyProp) => {
-  return (
-    <Link to={`/${props.routename}`} className='link'>
+  if (props.routename){
+    return(<Link to={`/${props.routename}`} className='link'>
       <div className={props.className}>{props.content}</div>
-    </Link>
+    </Link>)
+    
+  }
+  return (
+    <div className={props.className}>{props.content}</div>
   );
 }
 

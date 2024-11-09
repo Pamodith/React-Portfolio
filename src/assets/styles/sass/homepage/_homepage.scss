@@ -2,71 +2,49 @@
 @import "../main/fonts";
 
 .homepage {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  .homepage-background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
   &-outer {
     display: flex;
     justify-content: space-around;
     height: 100vh;
     width: 100%;
     gap: 2%;
+    color: $main-fontcolor;
     background: $main-background;
+    position: relative; // Ensures other content stays in the right layer above the video
+    z-index: 1;
   }
 
   &-inner-left {
     height: 50%;
     width: 50%;
-    position: relative; 
+    position: relative;
   }
 
   &-inner-right {
     height: 50%;
     width: 50%;
-  }
-}
+    margin: 7% 2%;
+    display: flex;
 
-.hero {
-  position: relative; 
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-
-  &-image {
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-    position: relative;
-  }
-
-  .circular-text {
-    position: absolute;
-    top: 117%;
-    left: 82%;
-    transform: translate(-50%, -50%); 
-    width: 400px; 
-    height: 400px; 
-    overflow: visible; 
-    // display: none;
-
-    svg {
-      width: 100%; 
-      height: 100%; 
-      animation: rotate 10s linear infinite; 
-    }
-
-    text {
-      fill: white; 
-      font-size: 14px; 
+    .introcard{
+      font-size: 2rem;
       font-family: $secondary-font;
+      color: rgb(185, 174, 16);
+      font-weight: 500
     }
-  }
-}
-
-// Define keyframes for the rotation
-@keyframes rotate {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
