@@ -33,9 +33,9 @@ function App() {
         }}
       ></div>
       <div className="content">
-        {/* {isLoading == true ? <LoadingPage/>:<MainNavigation/>} */}
+        {isLoading == true ? <LoadingPage/>:<MainNavigation/>}
     {/* <HomePage/> */}
-    <MainNavigation/>
+    {/* <MainNavigation/> */}
     {/* <LoadingPage/>  */}
       </div>
     </div>

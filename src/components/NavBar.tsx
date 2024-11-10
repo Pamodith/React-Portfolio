@@ -28,24 +28,23 @@ const NavBar = () => {
       routeName: "reviews",
       name: "Reviews",
     },
-    {
-      id: 5,
-      routeName: "side-gigs",
-      name: "Side Gigs",
-    },
   ];
   
   return (
-    <Grid className="navbar-outer">
+    <Grid  className="navbar-outer">
+      <Grid >
       <img className="navbar-outer-profile-image" src={Image}/>
+      </Grid>
+      <Grid className='navbar-outer-text'>
       {navtext.map((item) => (
         <TypographyText 
           key={item.id} 
           content={item.name} 
-          className="navbar-outer-text" 
+          className="navbar-outer-text-links" 
           routename={item.routeName} 
         />
       ))}
+      </Grid>
     </Grid>
   );
 };
