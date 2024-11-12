@@ -4,7 +4,8 @@ import Grid from "@mui/material/Grid2";
 import TypographyText from "./TypographyText";
 import '../assets/styles/sass/navbar/_navbar.scss';
 import { navtextProp } from "../types/type";
-import Image from '../assets/images/202064914.png'
+import Image from '../assets/images/202064914-Photoroom.png'
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const navtext: navtextProp[] = [
@@ -33,7 +34,10 @@ const NavBar = () => {
   return (
     <Grid  className="navbar-outer">
       <Grid >
-      <img className="navbar-outer-profile-image" src={Image}/>
+        <Link to='/'>
+        <img className="navbar-outer-profile-image" src={Image}/>
+        </Link>
+      
       </Grid>
       <Grid className='navbar-outer-text'>
       {navtext.map((item) => (

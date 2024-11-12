@@ -14,4 +14,8 @@ export type cardProp = {
   content:string
   cardClassName:string
 }
- 
+
+
+export type RoundCardProp = {
+  componentName?:string
+}
