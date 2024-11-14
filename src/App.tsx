@@ -21,8 +21,8 @@ function App() {
       <div className="content">
         {/* {isLoading == true ? <LoadingPage/>:<MainNavigation/>} */}
     {/* <HomePage/> */}
-    <MainNavigation/>
-    {/* <LoadingPage/>  */}
+    {/* <MainNavigation/> */}
+    <LoadingPage/> 
     {/* <AboutPage/> */}
       </div>
     </div>

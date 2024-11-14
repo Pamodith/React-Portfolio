@@ -1,7 +1,7 @@
 @import "../main/color";
 @import "../main/fonts";
 
-.experiencepage{
+.contactmepage{
     background: $main-background;
     background-image: -webkit-linear-gradient(
     172deg,
@@ -9,7 +9,7 @@
     $main-background 50%
   );
     width: 100%;
-    .experience{
+    .contactme{
         &-outer{
             // background: $main-background;
             
@@ -23,6 +23,7 @@
                 color: black;
                 font-family: $secondary-font;
                 display: flex;
+                margin-left: 2.5%;
                 // margin-bottom: 6%;
             }
             

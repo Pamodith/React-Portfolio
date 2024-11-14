@@ -20,15 +20,15 @@ const NavBar = () => {
       name: "Projects",
     },
     {
+      id: 4,
+      routeName: "experience",
+      name: "Experience",
+    },
+    {
       id: 3,
       routeName: "contact-me",
       name: "Contact Me",
-    },
-    {
-      id: 4,
-      routeName: "reviews",
-      name: "Reviews",
-    },
+    }
   ];
   
   return (

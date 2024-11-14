@@ -4,4 +4,5 @@ export type ExperienceProp = {
     jobTitle: string[]
     description: string
     languages: string[]
+    Image : string
   }

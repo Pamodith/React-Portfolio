@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../assets/styles/sass/roundcard/_roundcard.scss";
 import { RoundCardProp } from "../types/type";
 import css from '../assets/icons/css.svg';
@@ -14,6 +14,11 @@ import Atlas from '../assets/images/atlas.png'
 import Landaid from '../assets/images/landaid.png'
 import right from '../assets/images/arrow-right.png'
 import left from '../assets/images/left-arrow.png'
+import { ExperienceProp } from "../types/interface";
+import fatbeehive from '../assets/images/fatbeehive-Photoroom.png'
+import alphabeticalIT from '../assets/images/alphabetical_it_cover-Photoroom.png'
+import emailjs from '@emailjs/browser';
+
 
 
 const skills = [
@@ -35,7 +40,7 @@ const projects = [
 
 const RoundCard: React.FC<RoundCardProp> = (props) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  
+
   const nextIndex = () => {
     setCurrentIndex((currentstate) => (currentstate + 1) % projects.length)
   }
@@ -44,29 +49,140 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
     setCurrentIndex((prevState) => (prevState - 1 + projects.length) % projects.length)
   }
 
+  const experiences: ExperienceProp[] = [
+    {
+      titleName: "Fatbeehive - London",
+      year: "2024-Present",
+      jobTitle: ["Front-end Developer"],
+      description: `
+        Specializes in JavaScript and SCSS, primarily focusing on bug fixing and enhancements in web
+  applications developed using React.js, particularly in the context of the DIVI framework. Adept at
+  leveraging SASS for clean, maintainable styling and resolving issues to improve application performance
+  and user experience.
+  
+      `,
+      languages: ["HTML", "CSS", "JavaScript", "jQuery"],
+      Image: fatbeehive,
+    },
+    {
+      titleName: "Alphabetical IT - Houston Tx(Remote)",
+      year: "2022-2024",
+      jobTitle: ["Front-end Developer", "Trainee Front-end Developer"],
+      description: `
+        Proficient in developing dynamic web applications utilizing React.js, Redux, and JavaScript. Experienced
+  in creating user-friendly interfaces with Material-UI (MUI) and styling components using SCSS. Committed
+  to delivering high-quality, maintainable code and enhancing user experience through responsive design
+  and efficient state management
+      `,
+      languages: ["JavaScript", "HTML", "CSS", "React", "SCSS"],
+      Image: alphabeticalIT,
+    },
+  ];
+
   const handleContent = () => {
+    const form: any = useRef();
+
+    const sendEmail = (e: any) => {
+      e.preventDefault();
+
+      emailjs
+        .sendForm('service_sw6yhsf', 'template_acm135n', form.current, {
+          publicKey: 'PQMwy8MMCewH0aZAP',
+        })
+        .then(
+          () => {
+            console.log('SUCCESS!');
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+          },
+        );
+    };
     switch (props.componentName) {
-      case "reviews":
+      case "experience":
+        const currentExperienceIndex = experiences[currentIndex]
         return (
-          <div className="reviews-content">This is the Reviews section.</div>
+          <div className="roundcard-outer">
+            <div className="roundcard-inner">
+              <div className="experience-container">
+                <div className="experience-content" >
+                  <div className="experience-content-left">
+                    <div className="experience-content-left-heading">
+                      <div className="title">
+                        {currentExperienceIndex.jobTitle.map((item) =>
+                          <div className="title-jobname">
+                            {item}
+                          </div>
+                        )}
+
+                      </div>
+                      <div className="year">
+                        {currentExperienceIndex.year}
+                      </div>
+                    </div>
+                    <div className="description">{currentExperienceIndex.description}</div>
+                    <div className="languages">
+                      {currentExperienceIndex.languages.map((item) =>
+                        <div className="languages-circle">
+                          {item}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="experience-content-right">
+                    <div className="companyName">{currentExperienceIndex.titleName}</div>
+                    <img src={currentExperienceIndex.Image} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         );
       case "contact":
         return (
-          <div className="contactme-content">
-            This is the Contact Me section.
-          </div>
+          <>
+            <div className="roundcard-outer">
+              <div className="roundcard-inner">
+                <form ref={form} onSubmit={sendEmail}>
+                  <div className="contactme-container">
+                    <div className="contactme-content" >
+                      <div className="contactme-content-left">
+                        <div className="contactme-content-left-text">
+                          <label className="contactme-content-left-text-lable">Name</label>
+                          <input className="contactme-content-left-text-input" type="text" name="user_name" placeholder="Please add your name" />
+                        </div>
+                        <div className="contactme-content-left-email">
+                          <label className="contactme-content-left-email-lable" >Email</label>
+                          <input className="contactme-content-left-email-input" type="email" name="user_email" placeholder="Add your email" />
+                        </div>
+                      </div>
+                      <div className="contactme-content-right">
+                        <div className="contactme-content-right">
+                          <label className="contactme-content-right-lable">Message</label>
+                          <textarea className="contactme-content-right-textarea" name="message" />
+                          <input className="contactme-content-right-input" type="submit" value="Send" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </>
+
         );
       case "projects":
         const currentProjectIndex = projects[currentIndex]
         return (
-          <>  
-            
+          <>
+
             <div className="roundcard-outer">
               <div className="roundcard-inner">
                 <div className="projects-container">
                   <div className="projects-content" >
                     <div className="projects-content-left">
-                    {currentProjectIndex.content}
+                      {currentProjectIndex.content}
                     </div>
                     <div className="projects-content-right">
                       <img src={currentProjectIndex.Image} alt={currentProjectIndex.name} />
@@ -104,21 +220,31 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
   };
 
   return (
-    <div className="roundcard-container">
-  <div className="roundcard-nav-left" onClick={prevIndex}>
-    <img src={left} alt="Previous" />
-  </div>
+    <>
+      {props.componentName === "experience" || props.componentName === "projects" ? (
+        <div className="roundcard-container">
+          <div className="roundcard-nav-left" onClick={prevIndex}>
+            <img src={left} alt="Previous" />
+          </div>
   
-  <div className="roundcard-outer">
-    <div className="roundcard-inner">{handleContent()}</div>
-  </div>
-
-  <div className="roundcard-nav-right" onClick={nextIndex}>
-    <img src={right} alt="Next" />
-  </div>
-</div>
-
+          <div className="roundcard-outer">
+            <div className="roundcard-inner">{handleContent()}</div>
+          </div>
+  
+          <div className="roundcard-nav-right" onClick={nextIndex}>
+            <img src={right} alt="Next" />
+          </div>
+        </div>
+      ) : (
+        <div className="roundcard-container">
+        <div className="roundcard-outer">
+          <div className="roundcard-inner">{handleContent()}</div>
+        </div>
+        </div>
+      )}
+    </>
   );
+  
 };
 
 export default RoundCard;
