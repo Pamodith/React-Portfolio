@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import Availability from "../components/Availability";
 import "../assets/styles/sass/homepage/_homepage.scss";
@@ -10,6 +10,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import CV from '../assets/pdfs/Pamodith_Maduwantha_CV.pdf';
+import { motion, useMotionValue, useTransform } from "framer-motion";
+
 
 const socialMedia = [
   { component: LinkedInIcon, label: 'LinkedIn', link: 'https://www.linkedin.com/in/pamodith-maduwantha/' },
@@ -18,6 +20,8 @@ const socialMedia = [
 ];
 
 const HomePage = () => {
+  const [dragMessage, setDragMessage] = useState("Not feeling it? Just drag me aside 😉");
+
   const handleDownloadClick = (event: any) => {
     const newTab: any = window.open(CV, '_blank');
     newTab.onload = () => {
@@ -28,6 +32,19 @@ const HomePage = () => {
     };
     event.preventDefault();
   };
+
+  const x = useMotionValue(0); 
+  const opacity = useTransform(x, [-300, 0, 300], [0, 1, 0]); 
+
+  const handleDragEnd = (event: any, info: any) => {
+    if (Math.abs(info.point.x) > 200) {
+      setDragMessage("Okay then, I'll try another image.😒");
+    } else {
+      x.set(0);
+    }
+  };
+
+
   return (
     <div className="homepage">
       <NavBar />
@@ -65,7 +82,25 @@ const HomePage = () => {
             </div>
           </div>
           <div className="homepage-inner-right">
-            <img src={HeroImage} alt="Pamodith Maduwantha" className="hero-image" />
+            <div className="homepage-inner-right-text">
+            {dragMessage && (
+              <p className="homepage-inner-right-text" style={{ position: 'absolute', top: '6%',  transform: 'translateX(30%)', color: 'white', fontSize: '13px' }}>
+                {dragMessage}
+              </p>
+            )}
+            </div>
+            <motion.img
+              src={HeroImage}
+              alt="Pamodith Maduwantha"
+              className="hero-image"
+              style={{ x, opacity }}
+              drag="x"
+              dragConstraints={{ left: -300, right: 300 }}
+              dragElastic={0.5}
+              onDragEnd={handleDragEnd}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            />
+            
           </div>
         </div>
       </div>

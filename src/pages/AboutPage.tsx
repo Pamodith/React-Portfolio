@@ -23,7 +23,7 @@ const AboutPage = () => {
     <div className="aboutme-outer">
       <div className="heading">
         <h1 style={{color:'black', marginRight:"10px"}}>About </h1>
-        <h1 style={{color:'#D7D7D7'}}>Me </h1> 
+        <h1 style={{color:'#D7D7D7'}}>me </h1> 
        </div>
       <div className="aboutme-inner">
         <RoundCard componentName = ''/>

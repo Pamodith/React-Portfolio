@@ -44,7 +44,7 @@
     align-items: flex-start;
 
     &-title {
-      font-family: $secondary-background;
+      font-family: $secondary-font;
       animation-name: move;
       animation-duration: 0.9s;
       animation-fill-mode: forwards;
@@ -55,6 +55,9 @@
       .hero-image {
         width: 100%;
         height: 100%;
+      }
+      &-text{
+        font-family: $secondary-font;
       }
     }
     &-left {

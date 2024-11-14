@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState , useEffect } from "react";
 import "../assets/styles/sass/roundcard/_roundcard.scss";
 import { RoundCardProp } from "../types/type";
 import css from '../assets/icons/css.svg';
@@ -18,8 +18,16 @@ import { ExperienceProp } from "../types/interface";
 import fatbeehive from '../assets/images/fatbeehive-Photoroom.png'
 import alphabeticalIT from '../assets/images/alphabetical_it_cover-Photoroom.png'
 import emailjs from '@emailjs/browser';
+import { motion } from "framer-motion";
+import { shuffle } from "lodash";
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 
+const spring = {
+  type: "spring",
+  damping: 30,
+  stiffness: 300
+};
 
 const skills = [
   { name: 'React', logo: react },
@@ -40,7 +48,17 @@ const projects = [
 
 const RoundCard: React.FC<RoundCardProp> = (props) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-
+  const [isSkills, setIsSkills] = useState(skills);
+  const [text] :any = useTypewriter({
+    words: [
+      "Experienced Software Developer, specializing in crafting immersive user experiences with React.js, TypeScript, and SCSS. With two years of hands-on experience, I'm diving into the MERN stack to deepen my expertise. Passionate about using technology to tackle real-world challenges, I'm on a mission to make meaningful contributions. I bring a relentless drive for innovation and commitment to code excellence. Let's build something extraordinary together."
+    ],
+    loop: 0, 
+    typeSpeed: 70, 
+    deleteSpeed: 0, 
+    delaySpeed: 1000, 
+  });
+  
   const nextIndex = () => {
     setCurrentIndex((currentstate) => (currentstate + 1) % projects.length)
   }
@@ -48,6 +66,11 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
   const prevIndex = () => {
     setCurrentIndex((prevState) => (prevState - 1 + projects.length) % projects.length)
   }
+  
+
+  useEffect(() => {
+    setTimeout(() => setIsSkills(shuffle(isSkills)), 3000);
+  }, [isSkills]);
 
   const experiences: ExperienceProp[] = [
     {
@@ -80,11 +103,12 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
   ];
 
   const handleContent = () => {
+    
+
     const form: any = useRef();
 
     const sendEmail = (e: any) => {
       e.preventDefault();
-
       emailjs
         .sendForm('service_sw6yhsf', 'template_acm135n', form.current, {
           publicKey: 'PQMwy8MMCewH0aZAP',
@@ -197,20 +221,16 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
         return (
           <div className="default-content">
             <div className="default-content-left">
-              Experienced Software Developer, specializing in crafting immersive
-              user experiences with React.js, TypeScript, and SCSS. With two
-              years of hands-on experience, I'm diving into the MERN stack to
-              deepen my expertise. Passionate about using technology to tackle
-              real-world challenges, I'm on a mission to make meaningful
-              contributions. I bring a relentless drive for innovation and
-              commitment to code excellence. Let's build something extraordinary
-              together.
+              {text}
+              <Cursor/>
             </div>
             <div className="default-content-right">
               <div className="title">Professional Skills :</div>
               <div className="skills">
-                {skills.map((item) => (
-                  <img key={item.name} src={item.logo} alt={item.name} />
+                {isSkills.map((item) => (
+                  <motion.li style={{listStyle:'none'}} key={item.name} layout transition={spring}>
+                    <img src={item.logo} alt={item.name} />
+                  </motion.li>
                 ))}
               </div>
             </div>
