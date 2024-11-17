@@ -1,4 +1,3 @@
-import React from 'react'
 import "../assets/styles/sass/availability/_availability.scss"
 
 const Availability = () => {

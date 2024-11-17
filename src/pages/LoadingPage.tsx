@@ -1,7 +1,6 @@
 import { Grid2 } from "@mui/material";
 import "../assets/styles/sass/loadingpage/_loadingpage.scss";
 import TypographyText from "../components/TypographyText";
-import BackgroundVideo from '../assets/videos/3822008-uhd_3840_2160_30fps.mp4';
 
 const LoadingPage = () => {
   return (

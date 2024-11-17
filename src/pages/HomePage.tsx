@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import NavBar from "../components/NavBar";
 import "../assets/styles/sass/homepage/_homepage.scss";
 import HeroImage from '../assets/images/KSK09364-Photoroom.png';
@@ -29,17 +29,17 @@ const rightSectionVariants = {
 };
 
 const HomePage = () => {
-  const [dragMessage, setDragMessage] = useState("Not feeling it? Just drag me aside 😉");
+  // const [dragMessage, setDragMessage] = useState("Not feeling it? Just drag me aside 😉");
   const x = useMotionValue(0); 
   const opacity = useTransform(x, [-300, 0, 300], [0, 1, 0]); 
 
-  const handleDragEnd = (event: any, info: any) => {
-    if (Math.abs(info.point.x) > 200) {
-      setDragMessage("Okay then, I'll try another image.😒");
-    } else {
-      x.set(0);
-    }
-  };
+  // const handleDragEnd = (info: any) => {
+  //   if (Math.abs(info.point.x) > 200) {
+  //     setDragMessage("Okay then, I'll try another image.😒");
+  //   } else {
+  //     x.set(0);
+  //   }
+  // };
 
   return (
     <div className="homepage">
@@ -99,7 +99,6 @@ const HomePage = () => {
               drag="x"
               dragConstraints={{ left: -300, right: 300 }}
               dragElastic={0.5}
-              onDragEnd={handleDragEnd}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
             />
           </motion.div>

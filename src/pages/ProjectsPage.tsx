@@ -1,6 +1,4 @@
-import React from 'react'
 import RoundCard from '../components/RoundCard'
-import { RoundCardProp } from '../types/type'
 import NavBar from '../components/NavBar'
 
 

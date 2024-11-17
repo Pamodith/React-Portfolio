@@ -1,4 +1,3 @@
-import React from 'react';
 import heroImage from "../assets/styles/images/FullSizeRender.jpg";
 import '../assets/styles/sass/card/_heroCard.scss';
 

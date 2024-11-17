@@ -1,4 +1,3 @@
-import React from 'react'
 import NavBar from '../components/NavBar'
 import RoundCard from '../components/RoundCard'
 import '../assets/styles/sass/experience/_experience.scss'

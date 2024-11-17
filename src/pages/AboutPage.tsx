@@ -1,11 +1,8 @@
-import React, { useState } from "react";
 import { motion } from "framer-motion";
 import RoundCard from "../components/RoundCard";
 import '../assets/styles/sass/aboutme/_aboutme.scss'
 import NavBar from "../components/NavBar";
-import { Button } from "@mui/material";
-import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
-import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+
 
 // Define animation variants for left-to-right and right-to-left
 const leftToRight = {

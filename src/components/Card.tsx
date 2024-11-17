@@ -1,5 +1,4 @@
 import { Grid2 } from '@mui/material'
-import React from 'react'
 import "../assets/styles/sass/card/_card.scss"
 import { cardProp } from '../types/type'
 

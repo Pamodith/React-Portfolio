@@ -1,5 +1,3 @@
-// NavBar.tsx
-import React from 'react';
 import Grid from "@mui/material/Grid2";
 import TypographyText from "./TypographyText";
 import '../assets/styles/sass/navbar/_navbar.scss';
