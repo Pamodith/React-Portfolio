@@ -14,8 +14,8 @@ const ProjectsPage = () => {
       </div>
     <div className="aboutme-outer">
       <div className="heading">
-        <h1 style={{color:'black', marginLeft:'80px'}}>Pro</h1>
-        <h1 style={{color:'#D7D7D7'}}>jects</h1> 
+        <h1 style={{color:'#31473A', marginLeft:'80px'}}>Pro</h1>
+        <h1 style={{color:'#EDF4F2'}}>jects</h1> 
        </div>
       <div className="aboutme-inner">
         <RoundCard componentName = 'projects'/>

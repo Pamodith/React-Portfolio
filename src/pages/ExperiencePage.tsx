@@ -11,8 +11,8 @@ const ExperiencePage = () => {
       </div>
     <div className="experience-outer">
       <div className="heading">
-        <h1 style={{color:'black', marginLeft:'55px'}}>Exper</h1>
-        <h1 style={{color:'#D7D7D7'}}>ience</h1> 
+        <h1 style={{color:'#31473A', marginLeft:'55px'}}>Exper</h1>
+        <h1 style={{color:'#EDF4F2'}}>ience</h1> 
        </div>
       <div className="experience-inner">
         <RoundCard componentName = 'experience'/>

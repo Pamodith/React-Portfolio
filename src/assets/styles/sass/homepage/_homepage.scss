@@ -1,5 +1,6 @@
 @import "../main/color";
 @import "../main/fonts";
+@import "../main/breakpoints";
 
 .homepage {
   position: relative;
@@ -11,6 +12,10 @@
     $secondary-background 50%,
     $main-background 50%
   );
+  @include break(small) {
+		background-image: -webkit-linear-gradient(104deg, #31473A 27%, #EDF4F2 50%);
+	}
+  
 
   .homepage-background-video {
     position: fixed;
@@ -24,6 +29,7 @@
 
   &-outer {
     display: flex;
+    flex-direction:row;
     justify-content: space-around;
     height: 100vh;
     width: 100%;
@@ -32,6 +38,11 @@
     // background: $main-background;
     position: relative; // Ensures other content stays in the right layer above the video
     z-index: 1;
+
+    @include break(small) {
+      flex-direction:column;
+      justify-content: flex-start;
+    }
   }
 
   &-inner {
@@ -51,6 +62,9 @@
     }
     &-right {
       height: 100%;
+      @include break(small) {
+        display: none;
+      }
 
       .hero-image {
         width: 100%;
@@ -61,7 +75,7 @@
       }
     }
     &-left {
-      color: black;
+      color: $secondary-background;
       margin-top: 10%;
 
       &-title {
@@ -70,6 +84,12 @@
         align-items: flex-start;
         flex-direction: column;
         font-family: $secondary-font;
+        @include break(small) {
+          align-items: center;
+        }
+        @include break(tablet) {
+          align-items: center;
+        }
 
         .first {
           font-size: 1.25rem;
@@ -85,7 +105,7 @@
           color: #909090;
           height: 41px;
           width: 192px;
-          background-color: black;
+          background-color: $secondary-background;
           color: #c4c4c4;
           border-radius: 20px;
           display: flex;
@@ -98,7 +118,7 @@
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
           &:hover {
-            background: black;
+            background: $secondary-background;
             color: $main-background;
             animation: 1.5s infinite alternate ease-in-out;
             transform: scale(1.1);
@@ -115,6 +135,12 @@
           width: 100%;
           justify-content: flex-start;
           gap: 7%;
+          @include break(small) {
+            justify-content: center;
+          }
+          @include break(tablet) {
+            justify-content: center;
+          }
         }
         .social-media-icons {
           height: 50px;

@@ -23,6 +23,38 @@ import { shuffle } from "lodash";
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 
+const transitionVariants = {
+  initial: {
+    rotate: -45, // Rotate from the left
+    opacity: 0,
+    x: -100, // Off-screen
+  },
+  animate: {
+    rotate: 0, // Straight
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      type: "spring",
+      stiffness: 100,
+    },
+  },
+  exit: {
+    rotate: 45, // Rotate out to the right
+    opacity: 0,
+    x: 100,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+
+
+
+
+
+
 const spring = {
   type: "spring",
   damping: 30,
@@ -54,9 +86,9 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
       "Experienced Software Developer, specializing in crafting immersive user experiences with React.js, TypeScript, and SCSS. With two years of hands-on experience, I'm diving into the MERN stack to deepen my expertise. Passionate about using technology to tackle real-world challenges, I'm on a mission to make meaningful contributions. I bring a relentless drive for innovation and commitment to code excellence. Let's build something extraordinary together."
     ],
     loop: 0, 
-    typeSpeed: 70, 
+    typeSpeed: 10, 
     deleteSpeed: 0, 
-    delaySpeed: 1000, 
+    delaySpeed: 10000, 
   });
   
   const nextIndex = () => {
@@ -243,14 +275,24 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
     <>
       {props.componentName === "experience" || props.componentName === "projects" ? (
         <div className="roundcard-container">
+          {/* Left Navigation */}
           <div className="roundcard-nav-left" onClick={prevIndex}>
             <img src={left} alt="Previous" />
           </div>
-  
-          <div className="roundcard-outer">
+
+          {/* Animated Carousel */}
+          <motion.div
+            key={currentIndex} // Helps Framer Motion detect content change
+            className="roundcard-outer"
+            variants={transitionVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
             <div className="roundcard-inner">{handleContent()}</div>
-          </div>
-  
+          </motion.div>
+
+          {/* Right Navigation */}
           <div className="roundcard-nav-right" onClick={nextIndex}>
             <img src={right} alt="Next" />
           </div>
@@ -262,6 +304,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
         </div>
         </div>
       )}
+
     </>
   );
   

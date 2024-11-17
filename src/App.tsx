@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import MainNavigation from './routes/MainNavigation'
 import AboutPage from './pages/AboutPage'
 import NavBar from './components/NavBar'
+import RecommendationModal from './components/RecommendationModal'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <MainNavigation/>
     {/* <LoadingPage/>  */}
     {/* <AboutPage/> */}
+    {/* <RecommendationModal/> */}
       </div>
     </div>
     
