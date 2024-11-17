@@ -1,8 +1,5 @@
 import RoundCard from '../components/RoundCard'
 import NavBar from '../components/NavBar'
-
-
-
 const ProjectsPage = () => {
   
   return (
