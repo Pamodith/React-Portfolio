@@ -1,11 +1,13 @@
 @import "../main/color";
 @import "../main/fonts";
+@import "../main/breakpoints";
 
 .roundcard-container {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 
   .roundcard-nav-left,
   .roundcard-nav-right {
@@ -42,6 +44,15 @@
       $secondary-background 50%
     );
     border-radius: 20px;
+
+    @include break(small) {
+      // background-image: -webkit-linear-gradient(104deg, #31473A 27%, #EDF4F2 50%);
+      background: transparent;
+      box-shadow: none;
+      width: 100%;
+      height: 100%;
+      
+    }
   }
 
   .roundcard-inner {
@@ -55,6 +66,9 @@
       justify-content: space-evenly;
       align-items: center;
       height: 100%;
+      @include break(small) {
+        flex-direction: column-reverse;
+      }
 
       &-left {
         width: 100%;
@@ -66,7 +80,16 @@
         text-align: left;
         padding: 20px;
         color: $main-background;
+        @include break(small) {
+          margin-top: 0;
+          max-width: 90%;
+          font-size: 0.7rem;
+          font-weight: 500;
+          color: $main-background;
+          text-align: justify;
 
+          
+        }
       }
 
       &-right {
@@ -85,6 +108,15 @@
           flex-direction: column;
           align-items: flex-start;
           padding-left: 5%;
+
+          @include break(small) {
+            padding-left: 0;
+            margin-bottom: 0;
+            height: 1rem;
+            font-size: 1rem;
+            align-items: center;
+
+          }
         }
 
         .skills {
@@ -93,11 +125,21 @@
           gap: 30px;
           justify-items: center;
           margin-top: 10%;
+          @include break(small) {
+            margin-top: 0;
+            gap:3px;
+
+          }
 
           img {
             width: 50px;
             height: 50px;
             object-fit: contain;
+            @include break(small) {
+              width: 40px;
+              height: 40px;
+  
+            }
           }
         }
       }

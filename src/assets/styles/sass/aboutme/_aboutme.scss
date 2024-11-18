@@ -1,5 +1,7 @@
 @import "../main/color";
 @import "../main/fonts";
+@import "../main/breakpoints";
+
 
 .aboutmepage{
     background: $main-background;
@@ -9,6 +11,11 @@
     $main-background 50%
   );
     width: 100%;
+
+    @include break(small) {
+        background-image: -webkit-linear-gradient(104deg, #31473A 27%, #EDF4F2 50%);       
+      }
+
     .aboutme{
         &-outer{
             // background: $main-background;
@@ -24,6 +31,17 @@
                 font-family: $secondary-font;
                 display: flex;
                 // margin-bottom: 6%;
+                @include break(small) {
+                    font-size: small;
+                  }
+
+                &-left{
+                    color: #31473A;
+                    margin-right: 10px; 
+                }
+                &-right{
+                    color: #EDF4F2;
+                }
             }
             
         }

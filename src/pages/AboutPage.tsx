@@ -34,18 +34,19 @@ const AboutPage = () => {
         <div className="aboutme-outer">
           <div className="heading">
             <motion.h1 
-              style={{ color: '#31473A', marginRight: "10px" }} 
               variants={leftToRight} 
               initial="initial" 
               animate="animate"
+              className="heading-left"
             >
               About 
             </motion.h1>
             <motion.h1 
-              style={{ color: '#EDF4F2' }} 
+             
               variants={rightToLeft} 
               initial="initial" 
               animate="animate"
+              className="heading-right"
             >
               me 
             </motion.h1> 

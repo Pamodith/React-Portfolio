@@ -37,7 +37,7 @@ const ContactPage = () => {
             initial="initial"
             animate="animate"
           >
-            I'm Just a
+            I'm just a
           </motion.h1>
           <motion.h1
             style={{ color: '#EDF4F2' ,marginLeft:'10px' }}
