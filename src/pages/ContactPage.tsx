@@ -45,7 +45,7 @@ const ContactPage = () => {
             initial="initial"
             animate="animate"
           >
-            massage away !!
+            message away !!
           </motion.h1>
         </div>
 
