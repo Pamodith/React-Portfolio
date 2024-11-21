@@ -19,3 +19,8 @@ export type cardProp = {
 export type RoundCardProp = {
   componentName?:string
 }
+
+
+// export type MenuRoundedIconProp = {
+//   className?:string
+// }

@@ -59,7 +59,7 @@ const HomePage = () => {
             <div className="homepage-inner-left-title">
               <div className="first">Hi, I am</div>
               <h1 className="second">Pamodith Maduwantha</h1>
-              <div className="third">Front-end Developer / Bsc(hons) Computer Science</div>
+              <h5 className="third">Front-end Developer / Bsc(hons) Computer Science</h5>
               <div className="social-media">
                 {socialMedia.map((item, index) => (
                   <a

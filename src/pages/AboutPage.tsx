@@ -39,17 +39,8 @@ const AboutPage = () => {
               animate="animate"
               className="heading-left"
             >
-              About 
+              About me
             </motion.h1>
-            <motion.h1 
-             
-              variants={rightToLeft} 
-              initial="initial" 
-              animate="animate"
-              className="heading-right"
-            >
-              me 
-            </motion.h1> 
           </div>
           
           <div className="aboutme-inner">

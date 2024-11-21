@@ -14,14 +14,14 @@ function App() {
   },[])
   return (
     <>
-    <div className="app">
-      <div className="content">
-        {isLoading == true ? <LoadingPage/>:<MainNavigation/>}
+    {/* <div className="app">
+      <div className="content"> */}
+        {/* {isLoading == true ? <LoadingPage/>:<MainNavigation/>} */}
   
     
-        {/* <MainNavigation/> */}
-      </div>
-    </div>
+        <MainNavigation/>
+      {/* </div>
+    </div> */}
     
     </>
   )
