@@ -16,10 +16,10 @@ function App() {
     <>
     {/* <div className="app">
       <div className="content"> */}
-        {isLoading == true ? <LoadingPage/>:<MainNavigation/>}
+        {/* {isLoading == true ? <LoadingPage/>:<MainNavigation/>} */}
   
     
-        {/* <MainNavigation/> */}
+        <MainNavigation/>
       {/* </div>
     </div> */}
     

@@ -14,7 +14,7 @@
     $main-background 50%
   );
   @include break(small) {
-		background-image: -webkit-linear-gradient(104deg, #31473A 27%, #EDF4F2 50%);
+		background-image: -webkit-linear-gradient(104deg, $secondary-background 27%, $main-background 50%);
 	}
   
 

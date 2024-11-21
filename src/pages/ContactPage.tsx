@@ -32,21 +32,19 @@ const ContactPage = () => {
       <div className="contactme-outer">
         <div className="heading">
           <motion.h1
-            style={{ color: '#31473A' , paddingLeft:'130px' }}
             variants={leftToRight}
             initial="initial"
             animate="animate"
           >
-            I'm just a
+            I'm just a message away !!
           </motion.h1>
-          <motion.h1
-            style={{ color: '#EDF4F2' ,marginLeft:'10px' }}
+          {/* <motion.h1
             variants={rightToLeft}
             initial="initial"
             animate="animate"
           >
-            message away !!
-          </motion.h1>
+            
+          </motion.h1> */}
         </div>
 
         <div className="contactme-inner">
@@ -55,6 +53,7 @@ const ContactPage = () => {
             variants={rightToLeft}
             initial="initial"
             animate="animate"
+            style = {{width:"100%"}}
           >
             <RoundCard componentName="contact" />
           </motion.div>

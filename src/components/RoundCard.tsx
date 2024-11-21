@@ -158,8 +158,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
       case "experience":
         const currentExperienceIndex = experiences[currentIndex]
         return (
-          <div className="roundcard-outer">
-            <div className="roundcard-inner">
+          
               <div className="experience-container">
                 <div className="experience-content" >
                   <div className="experience-content-left">
@@ -191,14 +190,12 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+           
         );
       case "contact":
         return (
           <>
-            <div className="roundcard-outer">
-              <div className="roundcard-inner">
+            
                 <form ref={form} onSubmit={sendEmail}>
                   <div className="contactme-container">
                     <div className="contactme-content" >
@@ -222,9 +219,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
                     </div>
                   </div>
                 </form>
-              </div>
-
-            </div>
+              
           </>
 
         );
@@ -233,8 +228,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
         return (
           <>
 
-            <div className="roundcard-outer">
-              <div className="roundcard-inner">
+            
                 <div className="projects-container">
                   <div className="projects-content" >
                     <div className="projects-content-left">
@@ -245,8 +239,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+             
           </>
         );
       default:

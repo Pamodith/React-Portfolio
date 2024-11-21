@@ -102,6 +102,7 @@
           position: absolute;
           top: 34%;
           left: 5%;
+          color: $main-background;
         }
         
 
@@ -115,7 +116,7 @@
           justify-content: center;
           
           &-hamburger{
-            color: black;
+            color: $main-background;
             position: absolute;
             top: 34%;
             right: 8%;
@@ -159,9 +160,6 @@
             text-transform: uppercase;
             border-radius: 20px;
             
-            
-            
-      
             &:hover {
               color: $secondary-background;
               cursor: pointer;
