@@ -25,34 +25,25 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 const transitionVariants = {
   initial: {
-    rotate: -45, // Rotate from the left
+    scale: 0.8,
     opacity: 0,
-    x: -100, // Off-screen
   },
   animate: {
-    rotate: 0, // Straight
+    scale: 1,
     opacity: 1,
-    x: 0,
     transition: {
       duration: 0.7,
-      type: "spring",
-      stiffness: 100,
+      ease: "easeInOut",
     },
   },
   exit: {
-    rotate: 45, // Rotate out to the right
+    scale: 0.8,
     opacity: 0,
-    x: 100,
     transition: {
       duration: 0.5,
     },
   },
 };
-
-
-
-
-
 
 
 const spring = {

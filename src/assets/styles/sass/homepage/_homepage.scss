@@ -14,7 +14,7 @@
     $main-background 50%
   );
   @include break(small) {
-		background-image: -webkit-linear-gradient(104deg, $secondary-background 27%, $main-background 50%);
+		background-image: unset;
 	}
   
 
@@ -111,10 +111,10 @@
           margin: 7% 0 0 0;
         }
         .third {
-          color: #909090;
+          color: $secondary-background;
         }
         .fourth {
-          color: #909090;
+          color: $main-background;
           height: 41px;
           width: 192px;
           background-color: $secondary-background;
@@ -161,7 +161,8 @@
         .social-media-icons {
           height: 50px;
           width: 50px;
-          background-color: #c4c4c4;
+          background-color: $secondary-background;
+          color: $main-background;
           border-radius: 20%;
           display: flex;
           flex-direction: row;

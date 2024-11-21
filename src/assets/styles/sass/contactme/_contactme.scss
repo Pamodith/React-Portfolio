@@ -31,6 +31,8 @@
                 font-family: $secondary-font;
                 display: flex;
                 margin-left: 2.5%;
+                justify-content: flex-end;
+                padding-right: 15%;
                 // margin-bottom: 6%;
                 @include break(small) {
                     white-space: nowrap;   

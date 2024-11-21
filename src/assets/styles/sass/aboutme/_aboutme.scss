@@ -16,7 +16,7 @@
 
 
     @include break(small) {
-        background-image: -webkit-linear-gradient(104deg, $secondary-background 27%, $main-background 50%);    
+        background-image: unset;
       }
 
     .aboutme{
@@ -34,6 +34,8 @@
                 color: $secondary-background;
                 font-family: $secondary-font;
                 display: flex;
+                justify-content: flex-end;
+                padding-right: 15%;
                 // margin-bottom: 6%;
                 @include break(small) {
                     font-size: small;
@@ -42,7 +44,7 @@
                   }
 
                 &-left{
-                    color: #31473A;
+                    color: $secondary-background;
                     margin-right: 10px; 
                 }
                 &-right{

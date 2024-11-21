@@ -32,6 +32,8 @@
                 color: $secondary-background;
                 font-family: $secondary-font;
                 display: flex;
+                justify-content: flex-end;
+                padding-right: 15%;
                 // margin-bottom: 6%;
                 @include break(small) {
                     font-size: small;
