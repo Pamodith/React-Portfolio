@@ -60,6 +60,7 @@
 
             @include break(small) {
                 height: 100%;
+                align-items: unset;
                 
               }
         }

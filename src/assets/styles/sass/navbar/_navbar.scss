@@ -89,7 +89,6 @@
         // padding: 0 3% 0 20%;
         position: relative;
         width: 100%;
-        height: 3rem;
         z-index: 10;
         background: $secondary-background;
         // opacity: 0.5;
@@ -101,7 +100,7 @@
           height: 2rem;
           border-radius: 0.25rem;
           position: absolute;
-          top: 24%;
+          top: 34%;
           left: 5%;
         }
         
@@ -118,7 +117,7 @@
           &-hamburger{
             color: black;
             position: absolute;
-            top: 24%;
+            top: 34%;
             right: 8%;
             
           }
@@ -206,7 +205,7 @@
         height: 2rem;
         border-radius: 0.25rem;
         position: absolute;
-        top: 4%;
+        top: 3%;
         left: 5%;
       }
       
@@ -223,7 +222,7 @@
         &-hamburger{
           color: black;
           position: absolute;
-          top: 4%;
+          top: 3%;
           right: 8%;
           
         }
@@ -269,6 +268,7 @@
           
     
           &:hover {
+            width: 100%;
             color: $secondary-background;
             cursor: pointer;
             animation:1.5s infinite alternate ease-in-out;
