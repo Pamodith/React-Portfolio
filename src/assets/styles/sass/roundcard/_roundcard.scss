@@ -458,7 +458,7 @@
           justify-content: space-evenly;
 
           @include break(small) {
-            color: mix($main-background, $secondary-background, 50%);
+            color: $secondary-background;
             gap:0;
           }
 

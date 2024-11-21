@@ -129,8 +129,8 @@
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
           @include break(small) {
-            background-color: #c4c4c4;
-            color: $secondary-background;
+            background-color: $secondary-background;
+            color: $main-background;
           }
 
           &:hover {
