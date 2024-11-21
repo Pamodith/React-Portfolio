@@ -15,6 +15,7 @@
     height: 100vh;
     @include break(small) {
         background-image: -webkit-linear-gradient(104deg, $secondary-background 27%, $main-background 50%);    
+        overflow: scroll;
       }
     .Projects{
         &-outer{

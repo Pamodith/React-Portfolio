@@ -185,6 +185,7 @@
           align-items: center;
           @include break(small) {
             color: $secondary-background;
+            height: 80%;
   
           }
         }
@@ -197,6 +198,10 @@
           flex-direction: row;
           justify-content: center;
           align-items: center;
+          @include break(small) {
+            align-items: flex-start;
+            
+          }
 
           img {
             height: 60%;
@@ -414,6 +419,7 @@
 
           @include break(small) {
             color: $secondary-background;
+            gap:0;
           }
 
           &-heading {
@@ -450,10 +456,19 @@
           flex-direction: column;
           justify-content: space-evenly;
           align-items: center;
+          @include break(small) {
+            height:50%;
+            justify-content: flex-start;
+            margin-top: 10%;
+          }
 
           img {
             height: 60%;
             width: 75%;
+            @include break(small) {
+              height: 181px;
+              width: 200px;
+            }
           }
           .companyName {
             color: $secondary-background;
