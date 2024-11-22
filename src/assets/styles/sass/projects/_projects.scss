@@ -32,14 +32,23 @@
                 color: $secondary-background;
                 font-family: $secondary-font;
                 display: flex;
-                justify-content: flex-end;
-                padding-right: 15%;
+                justify-content: flex-start;
+                width: 60%;
+                // background: red;
+                position: relative;
+                
+
+                h1{
+                    color: $secondary-background;
+                }
                 // margin-bottom: 6%;
                 @include break(small) {
                     font-size: small;
                     margin: 0;
                     height: 3rem;
                     padding-right: 0;
+                    width: 50%;
+                    justify-content: center;
                   }
             }
             

@@ -2,7 +2,7 @@ import Grid from "@mui/material/Grid2";
 import TypographyText from "./TypographyText";
 import '../assets/styles/sass/navbar/_navbar.scss';
 import { navtextProp } from "../types/type";
-import Image from '../assets/images/202064914-Photoroom.png'
+import Image from '../assets/icons/mylogo.svg'
 import { Link } from 'react-router-dom';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { useState } from "react";
