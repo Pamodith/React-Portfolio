@@ -284,7 +284,6 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          margin-bottom: 5%;
           padding-left:6%;
           @include break(small) {
             width: 100%;
@@ -352,6 +351,10 @@
 
               }
             }
+          }
+          &-alert{
+            width: 70%;
+            // margin-top: 10%;
           }
         }
 

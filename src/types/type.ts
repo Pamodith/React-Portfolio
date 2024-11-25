@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react"
+
 export type typographyProp = {
     routename ?: string
     content: string
@@ -18,6 +20,8 @@ export type cardProp = {
 
 export type RoundCardProp = {
   componentName?:string
+  alert?: boolean
+  setAlert: Dispatch<SetStateAction<boolean>>
 }
 
 

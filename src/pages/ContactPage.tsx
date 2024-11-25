@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import RoundCard from '../components/RoundCard';
 import NavBar from '../components/NavBar';
 import '../assets/styles/sass/contactme/_contactme.scss';
+import { useState } from 'react';
+import { Alert } from '@mui/material';
 
 // Define animation variants for left-to-right and right-to-left with slower transition
 const leftToRight = {
@@ -17,8 +19,12 @@ const rightToLeft = {
 };
 
 const ContactPage = () => {
+  const [alert , setAlert] = useState<boolean>(false)
   return (
     <div className="contactmepage">
+
+      {alert && <Alert className="contactme-content-left-alert alert-free" severity="success">Message sent successfuly.</Alert>}
+
       {/* Animated Navbar */}
       <motion.div
         className="contactmepage-navbar"
@@ -55,7 +61,7 @@ const ContactPage = () => {
             animate="animate"
             style = {{width:"100%"}}
           >
-            <RoundCard componentName="contact" />
+            <RoundCard alert={alert} setAlert={setAlert} componentName="contact" />
           </motion.div>
         </div>
       </div>

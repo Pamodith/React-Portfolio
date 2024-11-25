@@ -1,4 +1,4 @@
-import React, { useRef, useState , useEffect } from "react";
+import React, { useRef, useState , useEffect, Dispatch, SetStateAction } from "react";
 import "../assets/styles/sass/roundcard/_roundcard.scss";
 import { RoundCardProp } from "../types/type";
 import css from '../assets/icons/css.svg';
@@ -21,6 +21,8 @@ import emailjs from '@emailjs/browser';
 import { motion } from "framer-motion";
 import { shuffle } from "lodash";
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import Alert from '@mui/material/Alert';
+
 
 
 const transitionVariants = {
@@ -70,6 +72,7 @@ const projects = [
 ];
 
 const RoundCard: React.FC<RoundCardProp> = (props) => {
+
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isSkills, setIsSkills] = useState(skills);
   const [text] :any = useTypewriter({
@@ -125,7 +128,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
     },
   ];
 
-  const handleContent = () => {
+  const handleContent = (props: { componentName: string, setAlert: Dispatch<SetStateAction<boolean>> }) => {
     
 
     const form: any = useRef();
@@ -138,7 +141,10 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
         })
         .then(
           () => {
-            console.log('SUCCESS!');
+            props.setAlert(true);
+            setTimeout(() => {
+              props.setAlert(false);
+            }, 5000);
           },
           (error) => {
             console.log('FAILED...', error.text);
@@ -186,24 +192,25 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
       case "contact":
         return (
           <>
-            
+              
                 <form ref={form} onSubmit={sendEmail}>
                   <div className="contactme-container">
                     <div className="contactme-content" >
                       <div className="contactme-content-left">
                         <div className="contactme-content-left-text">
                           <label className="contactme-content-left-text-lable">Name</label>
-                          <input className="contactme-content-left-text-input" type="text" name="user_name" placeholder="Please add your name" />
+                          <input className="contactme-content-left-text-input" type="text" name="user_name" placeholder="Please add your name" required/>
                         </div>
                         <div className="contactme-content-left-email">
                           <label className="contactme-content-left-email-lable" >Email</label>
-                          <input className="contactme-content-left-email-input" type="email" name="user_email" placeholder="Add your email" />
+                          <input className="contactme-content-left-email-input" type="email" name="user_email" placeholder="Add your email"  required/>
                         </div>
+                        {/* {alert ? <Alert className="contactme-content-left-alert" severity="success">Message sent successfuly.</Alert> : ''} */}
                       </div>
                       <div className="contactme-content-right">
                         <div className="contactme-content-right">
                           <label className="contactme-content-right-lable">Message</label>
-                          <textarea className="contactme-content-right-textarea" name="message" />
+                          <textarea className="contactme-content-right-textarea" name="message" required/>
                           <input className="contactme-content-right-input" type="submit" value="Send" />
                         </div>
                       </div>
@@ -273,7 +280,10 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
             animate="animate"
             exit="exit"
           >
-            <div className="roundcard-inner">{handleContent()}</div>
+            <div className="roundcard-inner">{handleContent({
+              componentName: props.componentName || '',
+              setAlert: props.setAlert
+            })}</div>
           </motion.div>
 
           {/* Right Navigation */}
@@ -284,7 +294,10 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
       ) : (
         <div className="roundcard-container">
         <div className="roundcard-outer">
-          <div className="roundcard-inner">{handleContent()}</div>
+          <div className="roundcard-inner">{handleContent({
+            componentName: props.componentName || '',
+            setAlert: props.setAlert
+          })}</div>
         </div>
         </div>
       )}
