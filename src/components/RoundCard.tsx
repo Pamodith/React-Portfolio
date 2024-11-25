@@ -21,7 +21,6 @@ import emailjs from '@emailjs/browser';
 import { motion } from "framer-motion";
 import { shuffle } from "lodash";
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import Alert from '@mui/material/Alert';
 
 
 
