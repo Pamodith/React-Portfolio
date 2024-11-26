@@ -9,11 +9,11 @@ const ExperiencePage = () => {
         <NavBar/>
       </div>
     <div className="experience-outer">
+      
+      <div className="experience-inner">
       <div className="heading">
         <h1>Experience</h1>
-        
        </div>
-      <div className="experience-inner">
         <RoundCard  componentName = 'experience'/>
       </div>
     </div>

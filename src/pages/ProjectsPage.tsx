@@ -9,10 +9,11 @@ const ProjectsPage = () => {
         <NavBar/>
       </div>
     <div className="Projects-outer">
+      
+      <div className="Projects-inner">
       <div className="heading">
         <h1>Projects</h1>
        </div>
-      <div className="Projects-inner">
         <RoundCard componentName = 'projects'/>
       </div>
     </div>
