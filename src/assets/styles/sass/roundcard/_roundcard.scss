@@ -85,6 +85,8 @@
       $secondary-background 50%
     );
     border-radius: 20px;
+    display: flex;
+    align-items: center;
 
     @include break(small) {
       // background-image: -webkit-linear-gradient(104deg, #31473A 27%, #EDF4F2 50%);

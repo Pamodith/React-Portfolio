@@ -28,9 +28,9 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            // @include break(xxxlarge) {
-            //     justify-content: center;
-            //   }
+            @include break(xxxlarge) {
+                justify-content: center;
+              }
             .heading{
                 color: $secondary-background;
                 font-family: $secondary-font;
@@ -83,11 +83,12 @@
     
         &-inner{
             width: 100%;
-            height: 66%;
+            height: 100%;
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-items: center;
+            padding-bottom: 10%;
             @include break(small) {
                 height: 100%;
                 align-items: flex-start;
