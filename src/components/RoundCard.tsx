@@ -127,7 +127,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
     },
   ];
 
-  const handleContent = (props: { componentName: string, setAlert: Dispatch<SetStateAction<boolean>> }) => {
+  const handleContent = (props: { componentName: string, setAlert?: Dispatch<SetStateAction<boolean>> }) => {
     
 
     const form: any = useRef();
@@ -140,10 +140,14 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
         })
         .then(
           () => {
-            props.setAlert(true);
-            setTimeout(() => {
-              props.setAlert(false);
-            }, 5000);
+            if(props.setAlert) {
+              props.setAlert(true);
+              setTimeout(() => {
+                if(props.setAlert) {
+                  props.setAlert(false);
+                }
+              }, 5000);
+            }
           },
           (error) => {
             console.log('FAILED...', error.text);

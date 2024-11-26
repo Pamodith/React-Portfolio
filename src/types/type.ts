@@ -21,7 +21,7 @@ export type cardProp = {
 export type RoundCardProp = {
   componentName?:string
   alert?: boolean
-  setAlert: Dispatch<SetStateAction<boolean>>
+  setAlert?: Dispatch<SetStateAction<boolean>>
 }
 
 

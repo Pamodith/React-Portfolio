@@ -14,7 +14,7 @@ const ExperiencePage = () => {
         
        </div>
       <div className="experience-inner">
-        <RoundCard componentName = 'experience'/>
+        <RoundCard  componentName = 'experience'/>
       </div>
     </div>
     </div>
