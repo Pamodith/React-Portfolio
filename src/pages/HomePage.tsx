@@ -6,7 +6,7 @@ import SmallscreenHeroImage from '../assets/images/Pamodith(1).png';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import CV from '../assets/pdfs/Pamodith_Maduwantha_CV.pdf';
+import CV from '../assets/pdfs/Pamodith_CV.pdf';
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -46,8 +46,8 @@ const HomePage = () => {
     };
   }, []);
   // const [dragMessage, setDragMessage] = useState("Not feeling it? Just drag me aside 😉");
-  const x = useMotionValue(0); 
-  const opacity = useTransform(x, [-300, 0, 300], [0, 1, 0]); 
+  const x = useMotionValue(0);
+  const opacity = useTransform(x, [-300, 0, 300], [0, 1, 0]);
 
   // const handleDragEnd = (info: any) => {
   //   if (Math.abs(info.point.x) > 200) {
@@ -95,10 +95,25 @@ const HomePage = () => {
                 <a
                   href={CV}
                   className="download-cv-button"
-                  download="Pamodith_Maduwantha_CV.pdf"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const newTab = window.open(CV, "_blank", "noopener,noreferrer");
+                    const link = document.createElement("a");
+                    link.href = CV;
+                    link.download = "Pamodith_CV.pdf"; // Specify the file name
+                    document.body.appendChild(link); // Append the link to the document
+                    link.click(); // Programmatically click the link to start download
+                    document.body.removeChild(link); // Remove the link element
+
+                    // Ensure the new tab is focused
+                    if (newTab) {
+                      newTab.focus();
+                    }
+                  }}
                 >
                   Download my CV
                 </a>
+
               </div>
             </div>
           </motion.div>
