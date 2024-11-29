@@ -12,7 +12,8 @@ import node from '../assets/icons/nodejs.svg';
 import mongodb from '../assets/icons/mongodb.svg';
 import Atlas from '../assets/images/Atlas World (1).png'
 import Landaid from '../assets/images/fatbeehive_projects.png'
-import right from '../assets/images/arrow-right.png'
+import right from '../assets/images/arrow-right (1).png'
+import smallscreenright from '../assets/images/arrow-right.png'
 import left from '../assets/images/left-arrow.png'
 import { ExperienceProp } from "../types/interface";
 import fatbeehive from '../assets/images/fatbeehive-Photoroom.png'
@@ -74,6 +75,20 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isSkills, setIsSkills] = useState(skills);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   // const [text] :any = useTypewriter({
   //   words: [
   //     "Experienced Software Developer, specializing in crafting immersive user experiences with React.js, TypeScript, and SCSS. With two years of hands-on experience, I'm diving into the MERN stack to deepen my expertise. Passionate about using technology to tackle real-world challenges, I'm on a mission to make meaningful contributions. I bring a relentless drive for innovation and commitment to code excellence. Let's build something extraordinary together."
@@ -292,7 +307,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
 
           {/* Right Navigation */}
           <div className="roundcard-nav-right" onClick={nextIndex}>
-            <img src={right} alt="Next" />
+            <img src={isSmallScreen? smallscreenright : right} alt="Next" />
           </div>
         </div>
       ) : (
