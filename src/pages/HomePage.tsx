@@ -1,12 +1,14 @@
 
 import NavBar from "../components/NavBar";
 import "../assets/styles/sass/homepage/_homepage.scss";
-import HeroImage from '../assets/images/5.png';
+import HeroImage from '../assets/images/2.png';
+import SmallscreenHeroImage from '../assets/images/Pamodith(1).png';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import CV from '../assets/pdfs/Pamodith_Maduwantha_CV.pdf';
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const socialMedia = [
   { component: LinkedInIcon, label: 'LinkedIn', link: 'https://www.linkedin.com/in/pamodith-maduwantha/' },
@@ -29,6 +31,20 @@ const rightSectionVariants = {
 };
 
 const HomePage = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   // const [dragMessage, setDragMessage] = useState("Not feeling it? Just drag me aside 😉");
   const x = useMotionValue(0); 
   const opacity = useTransform(x, [-300, 0, 300], [0, 1, 0]); 
@@ -92,14 +108,14 @@ const HomePage = () => {
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
             <motion.img
-              src={HeroImage}
+              src={isSmallScreen ? SmallscreenHeroImage : HeroImage}
               alt="Pamodith Maduwantha"
               className="hero-image"
               style={{ x, opacity }}
               drag="x"
               dragConstraints={{ left: -300, right: 300 }}
               dragElastic={0.5}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
             />
           </motion.div>
         </div>
