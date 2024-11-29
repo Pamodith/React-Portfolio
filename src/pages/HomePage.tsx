@@ -1,7 +1,7 @@
 
 import NavBar from "../components/NavBar";
 import "../assets/styles/sass/homepage/_homepage.scss";
-import HeroImage from '../assets/images/2.png';
+import HeroImage from '../assets/images/5.png';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';

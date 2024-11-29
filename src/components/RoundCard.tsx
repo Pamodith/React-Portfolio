@@ -11,7 +11,7 @@ import next from '../assets/icons/nextjs.svg';
 import node from '../assets/icons/nodejs.svg';
 import mongodb from '../assets/icons/mongodb.svg';
 import Atlas from '../assets/images/atlas.png'
-import Landaid from '../assets/images/landaid.png'
+import Landaid from '../assets/images/fatbeehive_projects.png'
 import right from '../assets/images/arrow-right.png'
 import left from '../assets/images/left-arrow.png'
 import { ExperienceProp } from "../types/interface";
@@ -67,7 +67,7 @@ const skills = [
 
 const projects = [
   { name: 'Atlas', Image: Atlas, content: ' At ATLAS World, I served as the lead front-end developer, responsible for creating dynamic, responsive interfaces that provide a seamless user experience across all devices. Utilizing TypeScript and Redux for state management, I implemented Material-UI (MUI) for consistent and modern styling. The project’s target audience spanned the entire country, so maintaining design precision and sharpness was crucial to ensure the interface met the needs of a diverse user base. My work focused on delivering a highly responsive and visually cohesive platform that provides users with an intuitive and engaging experience.' },
-  { name: 'Landaid', Image: Landaid, content: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+  { name: 'Landaid', Image: Landaid, content: ' I have contributed to the development and maintenance of over 20 UK-based web projects, including notable organizations such as LandAid, Dogstar Foundation, and Antibiotic Research UK. My primary role involved resolving bugs and optimizing functionality using Vanilla JavaScript and Sass, ensuring seamless user experiences and robust performance.' },
 ];
 
 const RoundCard: React.FC<RoundCardProp> = (props) => {
