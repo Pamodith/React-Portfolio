@@ -1,4 +1,4 @@
-import React, { useRef, useState , useEffect, Dispatch, SetStateAction } from "react";
+import React, { useRef, useState, useEffect, Dispatch, SetStateAction } from "react";
 import "../assets/styles/sass/roundcard/_roundcard.scss";
 import { RoundCardProp } from "../types/type";
 import css from '../assets/icons/css.svg';
@@ -10,7 +10,7 @@ import mui from '../assets/icons/material-ui-1.svg';
 import next from '../assets/icons/nextjs.svg';
 import node from '../assets/icons/nodejs.svg';
 import mongodb from '../assets/icons/mongodb.svg';
-import Atlas from '../assets/images/atlas.png'
+import Atlas from '../assets/images/Atlas World (1).png'
 import Landaid from '../assets/images/fatbeehive_projects.png'
 import right from '../assets/images/arrow-right.png'
 import left from '../assets/images/left-arrow.png'
@@ -74,16 +74,16 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isSkills, setIsSkills] = useState(skills);
-  const [text] :any = useTypewriter({
-    words: [
-      "Experienced Software Developer, specializing in crafting immersive user experiences with React.js, TypeScript, and SCSS. With two years of hands-on experience, I'm diving into the MERN stack to deepen my expertise. Passionate about using technology to tackle real-world challenges, I'm on a mission to make meaningful contributions. I bring a relentless drive for innovation and commitment to code excellence. Let's build something extraordinary together."
-    ],
-    loop: 0, 
-    typeSpeed: 10, 
-    deleteSpeed: 0, 
-    delaySpeed: 10000, 
-  });
-  
+  // const [text] :any = useTypewriter({
+  //   words: [
+  //     "Experienced Software Developer, specializing in crafting immersive user experiences with React.js, TypeScript, and SCSS. With two years of hands-on experience, I'm diving into the MERN stack to deepen my expertise. Passionate about using technology to tackle real-world challenges, I'm on a mission to make meaningful contributions. I bring a relentless drive for innovation and commitment to code excellence. Let's build something extraordinary together."
+  //   ],
+  //   loop: 0, 
+  //   typeSpeed: 10, 
+  //   deleteSpeed: 0, 
+  //   delaySpeed: 10000, 
+  // });
+
   const nextIndex = () => {
     setCurrentIndex((currentstate) => (currentstate + 1) % projects.length)
   }
@@ -91,7 +91,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
   const prevIndex = () => {
     setCurrentIndex((prevState) => (prevState - 1 + projects.length) % projects.length)
   }
-  
+
 
   useEffect(() => {
     setTimeout(() => setIsSkills(shuffle(isSkills)), 3000);
@@ -128,7 +128,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
   ];
 
   const handleContent = (props: { componentName: string, setAlert?: Dispatch<SetStateAction<boolean>> }) => {
-    
+
 
     const form: any = useRef();
 
@@ -140,10 +140,10 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
         })
         .then(
           () => {
-            if(props.setAlert) {
+            if (props.setAlert) {
               props.setAlert(true);
               setTimeout(() => {
-                if(props.setAlert) {
+                if (props.setAlert) {
                   props.setAlert(false);
                 }
               }, 5000);
@@ -158,69 +158,69 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
       case "experience":
         const currentExperienceIndex = experiences[currentIndex]
         return (
-          
-              <div className="experience-container">
-                <div className="experience-content" >
-                  <div className="experience-content-left">
-                    <div className="experience-content-left-heading">
-                      <div className="title">
-                        {currentExperienceIndex.jobTitle.map((item) =>
-                          <div className="title-jobname">
-                            {item}
-                          </div>
-                        )}
 
+          <div className="experience-container">
+            <div className="experience-content" >
+              <div className="experience-content-left">
+                <div className="experience-content-left-heading">
+                  <div className="title">
+                    {currentExperienceIndex.jobTitle.map((item) =>
+                      <div className="title-jobname">
+                        {item}
                       </div>
-                      <div className="year">
-                        {currentExperienceIndex.year}
-                      </div>
-                    </div>
-                    <div className="description">{currentExperienceIndex.description}</div>
-                    <div className="languages">
-                      {currentExperienceIndex.languages.map((item) =>
-                        <div className="languages-circle">
-                          {item}
-                        </div>
-                      )}
-                    </div>
+                    )}
+
                   </div>
-                  <div className="experience-content-right">
-                    <div className="companyName">{currentExperienceIndex.titleName}</div>
-                    <img src={currentExperienceIndex.Image} />
+                  <div className="year">
+                    {currentExperienceIndex.year}
                   </div>
                 </div>
+                <div className="description">{currentExperienceIndex.description}</div>
+                <div className="languages">
+                  {currentExperienceIndex.languages.map((item) =>
+                    <div className="languages-circle">
+                      {item}
+                    </div>
+                  )}
+                </div>
               </div>
-           
+              <div className="experience-content-right">
+                <div className="companyName">{currentExperienceIndex.titleName}</div>
+                <img src={currentExperienceIndex.Image} />
+              </div>
+            </div>
+          </div>
+
         );
       case "contact":
         return (
           <>
-              
-                <form ref={form} onSubmit={sendEmail}>
-                  <div className="contactme-container">
-                    <div className="contactme-content" >
-                      <div className="contactme-content-left">
-                        <div className="contactme-content-left-text">
-                          <label className="contactme-content-left-text-lable">Name</label>
-                          <input className="contactme-content-left-text-input" type="text" name="user_name" placeholder="Please add your name" required/>
-                        </div>
-                        <div className="contactme-content-left-email">
-                          <label className="contactme-content-left-email-lable" >Email</label>
-                          <input className="contactme-content-left-email-input" type="email" name="user_email" placeholder="Add your email"  required/>
-                        </div>
-                        {/* {alert ? <Alert className="contactme-content-left-alert" severity="success">Message sent successfuly.</Alert> : ''} */}
-                      </div>
-                      <div className="contactme-content-right">
-                        <div className="contactme-content-right">
-                          <label className="contactme-content-right-lable">Message</label>
-                          <textarea className="contactme-content-right-textarea" name="message" required/>
-                          <input className="contactme-content-right-input" type="submit" value="Send" />
-                        </div>
-                      </div>
+
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="contactme-container">
+                <div className="contactme-content" >
+                  <div className="contactme-content-left">
+                    <div className="contactme-content-left-text">
+                      <label className="contactme-content-left-text-lable">Name</label>
+                      <input className="contactme-content-left-text-input" type="text" name="user_name" placeholder="Please add your name" required />
+                    </div>
+                    <div className="contactme-content-left-email">
+                      <label className="contactme-content-left-email-lable" >Email</label>
+                      <input className="contactme-content-left-email-input" type="email" name="user_email" placeholder="Add your email" required />
+                    </div>
+                    {/* {alert ? <Alert className="contactme-content-left-alert" severity="success">Message sent successfuly.</Alert> : ''} */}
+                  </div>
+                  <div className="contactme-content-right">
+                    <div className="contactme-content-right">
+                      <label className="contactme-content-right-lable">Message</label>
+                      <textarea className="contactme-content-right-textarea" name="message" required />
+                      <input className="contactme-content-right-input" type="submit" value="Send" />
                     </div>
                   </div>
-                </form>
-              
+                </div>
+              </div>
+            </form>
+
           </>
 
         );
@@ -229,32 +229,33 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
         return (
           <>
 
-            
-                <div className="projects-container">
-                  <div className="projects-content" >
-                    <div className="projects-content-left">
-                      {currentProjectIndex.content}
-                    </div>
-                    <div className="projects-content-right">
-                      <img src={currentProjectIndex.Image} alt={currentProjectIndex.name} />
-                    </div>
-                  </div>
+
+            <div className="projects-container">
+              <div className="projects-content" >
+                <div className="projects-content-left">
+                  {currentProjectIndex.content}
                 </div>
-             
+                <div className="projects-content-right">
+                  <img src={currentProjectIndex.Image} alt={currentProjectIndex.name} />
+                </div>
+              </div>
+            </div>
+
           </>
         );
       default:
         return (
           <div className="default-content">
             <div className="default-content-left">
-              {text}
-              <Cursor/>
+              {/* {text}
+              <Cursor/> */}
+              Experienced Software Developer, specializing in crafting immersive user experiences with React.js, TypeScript, and SCSS. With two years of hands-on experience, I'm diving into the MERN stack to deepen my expertise. Passionate about using technology to tackle real-world challenges, I'm on a mission to make meaningful contributions. I bring a relentless drive for innovation and commitment to code excellence. Let's build something extraordinary together.
             </div>
             <div className="default-content-right">
               <div className="title">Professional Skills :</div>
               <div className="skills">
                 {isSkills.map((item) => (
-                  <motion.li style={{listStyle:'none'}} key={item.name} layout transition={spring}>
+                  <motion.li style={{ listStyle: 'none' }} key={item.name} layout transition={spring}>
                     <img src={item.logo} alt={item.name} />
                   </motion.li>
                 ))}
@@ -296,18 +297,18 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
         </div>
       ) : (
         <div className="roundcard-container">
-        <div className="roundcard-outer">
-          <div className="roundcard-inner">{handleContent({
-            componentName: props.componentName || '',
-            setAlert: props.setAlert
-          })}</div>
-        </div>
+          <div className="roundcard-outer">
+            <div className="roundcard-inner">{handleContent({
+              componentName: props.componentName || '',
+              setAlert: props.setAlert
+            })}</div>
+          </div>
         </div>
       )}
 
     </>
   );
-  
+
 };
 
 export default RoundCard;
