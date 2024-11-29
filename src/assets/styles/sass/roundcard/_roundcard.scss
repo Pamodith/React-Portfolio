@@ -214,20 +214,36 @@
 
         &-left {
           width: 83%;
-          height: 100%;
+          height: 300px;
           font-family: $secondary-font;
           font-size: 0.9rem;
           line-height: 1.5;
-          text-align: left;
           padding: 20px;
           color: $main-background;
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           align-items: center;
+          justify-content: space-around;
           @include break(small) {
             color: $secondary-background;
             height: 80%;
   
+          }
+          .project-title{
+            font-size: 1.3rem;
+            width: 100%;
+            font-weight: bold;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-start;
+            @include break(small) {
+              justify-content: center;
+    
+            }
+          }
+          .project-content{
+            text-align: left;
           }
         }
 
@@ -243,6 +259,10 @@
             align-items: flex-start;
             height: 100%;
             
+          }
+          &-link{
+            display: flex;
+            justify-content: center;
           }
 
           img {

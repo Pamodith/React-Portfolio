@@ -12,6 +12,7 @@ import node from '../assets/icons/nodejs.svg';
 import mongodb from '../assets/icons/mongodb.svg';
 import Atlas from '../assets/images/Atlas World (1).png'
 import Landaid from '../assets/images/fatbeehive_projects.png'
+import Qnet from '../assets/images/qnet.png'
 import right from '../assets/images/arrow-right (1).png'
 import smallscreenright from '../assets/images/arrow-right.png'
 import left from '../assets/images/left-arrow.png'
@@ -21,6 +22,7 @@ import alphabeticalIT from '../assets/images/alphabetical_it_cover-Photoroom.png
 import emailjs from '@emailjs/browser';
 import { motion } from "framer-motion";
 import { shuffle } from "lodash";
+import { Link } from "react-router-dom";
 // import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 
@@ -67,8 +69,9 @@ const skills = [
 ];
 
 const projects = [
-  { name: 'Atlas', Image: Atlas, content: ' At ATLAS World, I served as the lead front-end developer, responsible for creating dynamic, responsive interfaces that provide a seamless user experience across all devices. Utilizing TypeScript and Redux for state management, I implemented Material-UI (MUI) for consistent and modern styling. The project’s target audience spanned the entire country, so maintaining design precision and sharpness was crucial to ensure the interface met the needs of a diverse user base. My work focused on delivering a highly responsive and visually cohesive platform that provides users with an intuitive and engaging experience.' },
-  { name: 'Landaid', Image: Landaid, content: ' I have contributed to the development and maintenance of over 20 UK-based web projects, including notable organizations such as LandAid, Dogstar Foundation, and Antibiotic Research UK. My primary role involved resolving bugs and optimizing functionality using Vanilla JavaScript and Sass, ensuring seamless user experiences and robust performance.' },
+  { name: 'Atlas World',Link:'https://atlasworld.lk/', Image: Atlas, content: ' At Atlas World, I served as the lead front-end developer, crafting dynamic and responsive interfaces with TypeScript, Redux, and Material-UI (MUI). I focused on delivering a seamless user experience by ensuring design precision, sharpness, and consistency across all devices. With a nationwide target audience, my work emphasized creating an intuitive and visually cohesive platform that met the diverse needs of users while maintaining high performance and responsiveness.' },
+  { name: '20+ International Projects',Link:'https://www.landaid.org/', Image: Landaid, content: ' I have contributed to the development and maintenance of over 20 UK-based web projects, including notable organizations such as LandAid, Dogstar Foundation, and Antibiotic Research UK. My primary role involved resolving bugs and optimizing functionality using Vanilla JavaScript and Sass, ensuring seamless user experiences and robust performance.' },
+  { name: 'Q-Net Report (Sapphire)',Link:'https://www.qinfosys.com/index.html', Image: Qnet, content: "I played a key role in the development of Q-Net Report Sapphire, focusing on front-end features using React, Redux, and SCSS. I was responsible for designing and implementing new functionalities to enhance the platform's reporting and analysis capabilities. In addition, I addressed user feedback by fixing and improving user guides, ensuring a seamless and efficient user experience. I also worked on optimizing the performance of the platform, contributing to its scalability and smooth operation across various business levels."},
 ];
 
 const RoundCard: React.FC<RoundCardProp> = (props) => {
@@ -98,20 +101,6 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
   //   deleteSpeed: 0, 
   //   delaySpeed: 10000, 
   // });
-
-  const nextIndex = () => {
-    setCurrentIndex((currentstate) => (currentstate + 1) % projects.length)
-  }
-
-  const prevIndex = () => {
-    setCurrentIndex((prevState) => (prevState - 1 + projects.length) % projects.length)
-  }
-
-
-  useEffect(() => {
-    setTimeout(() => setIsSkills(shuffle(isSkills)), 3000);
-  }, [isSkills]);
-
   const experiences: ExperienceProp[] = [
     {
       titleName: "Fatbeehive - London",
@@ -141,6 +130,22 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
       Image: alphabeticalIT,
     },
   ];
+
+  const activeContent = props.componentName === "experience" ? experiences : projects;
+  const nextIndex = () => {
+    setCurrentIndex((currentstate) => (currentstate + 1) % activeContent.length)
+  }
+
+  const prevIndex = () => {
+    setCurrentIndex((prevState) => (prevState - 1 + activeContent.length) % activeContent.length)
+  }
+
+
+  useEffect(() => {
+    setTimeout(() => setIsSkills(shuffle(isSkills)), 3000);
+  }, [isSkills]);
+
+
 
   const handleContent = (props: { componentName: string, setAlert?: Dispatch<SetStateAction<boolean>> }) => {
 
@@ -248,10 +253,12 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
             <div className="projects-container">
               <div className="projects-content" >
                 <div className="projects-content-left">
-                  {currentProjectIndex.content}
-                </div>
+                  <h1 className="project-title">{currentProjectIndex.name}</h1>
+                    <div className="project-content">{currentProjectIndex.content}</div></div> 
                 <div className="projects-content-right">
+                  <Link className="projects-content-right-link" to={currentProjectIndex.Link}>
                   <img src={currentProjectIndex.Image} alt={currentProjectIndex.name} />
+                  </Link>
                 </div>
               </div>
             </div>
