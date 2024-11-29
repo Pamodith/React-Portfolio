@@ -113,7 +113,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
   and user experience.
   
       `,
-      languages: ["HTML", "CSS", "JavaScript", "jQuery"],
+      languages: ["React", "SASS", "JavaScript", "jQuery"],
       Image: fatbeehive,
     },
     {
@@ -126,7 +126,7 @@ const RoundCard: React.FC<RoundCardProp> = (props) => {
   to delivering high-quality, maintainable code and enhancing user experience through responsive design
   and efficient state management
       `,
-      languages: ["JavaScript", "HTML", "CSS", "React", "SCSS"],
+      languages: ["React","JavaScript", "Redux",  "SASS"],
       Image: alphabeticalIT,
     },
   ];

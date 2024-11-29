@@ -512,9 +512,16 @@
               color: $secondary-background;
               border-radius: 20px;
               width: 71px;
+              height: 28px;
+              font-weight: bolder;
               display: flex;
               justify-content: center;
               font-size: x-small;
+              align-items: center;
+              @include break(small) {
+                background: $secondary-background;
+                color: $main-background;
+              }
             }
           }
         }
