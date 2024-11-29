@@ -246,7 +246,7 @@
           }
 
           img {
-            height: 90%;
+            height: 100%;
             width: 50%;
             @include break(small) {
               width: 50%;
@@ -514,7 +514,7 @@
           }
 
           img {
-            height: 60%;
+            height: 80%;
             width: 60%;
             @include break(small) {
               height: 181px;
